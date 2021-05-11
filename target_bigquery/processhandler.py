@@ -149,7 +149,7 @@ class LoadJobProcessHandler(BaseProcessHandler):
 
             # copy tables to production tables
             copy_config = CopyJobConfig()
-            copy_config.write_disposition = WriteDisposition.WRITE_TRUNCATE
+            copy_config.write_disposition = WriteDisposition.WRITE_APPEND
 
             for stream, tmp_table_name in loaded_tmp_tables:
                 self.logger.info(f"Copy {tmp_table_name} to {self.tables[stream]}")
